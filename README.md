@@ -173,3 +173,7 @@ MIT License
 
 欢迎提交Issue和Pull Request！
 
+##
+特别感谢 @YuXiaoyao 大佬开源的项目，本项目为完全翻译的JAVA版本
+项目地址：https://github.com/yu-xiaoyao/jrebel-license-active-server
+
