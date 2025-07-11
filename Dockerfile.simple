@@ -1,0 +1,17 @@
+# 简化的Dockerfile - 用于快速测试
+FROM openjdk:17-jre-alpine
+
+# 设置工作目录
+WORKDIR /app
+
+# 设置时区
+ENV TZ=Asia/Shanghai
+
+# 暴露端口
+EXPOSE 12345
+
+# 复制JAR文件（需要先构建）
+COPY target/jrebel-license-active-server-1.0.0.jar app.jar
+
+# 设置启动命令
+ENTRYPOINT ["java", "-jar", "app.jar", "--server.port=12345"] 

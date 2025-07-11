@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  jrebel-license-active-server:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: jrebel-license-active-server-java
+    ports:
+      - "12345:12345"
+    environment:
+      # 服务器配置
+      - SERVER_PORT=12345
+      - JREBEL_SERVER_EXPORT_SCHEMA=http
+      - JREBEL_SERVER_NEW_INDEX=true
+      # 工作模式配置 (1:强制离线, 2:强制在线, 3:oldGuid模式, 其他:自动)
+      - JREBEL_WORK_MODE=0
+      # 离线天数配置
+      - JREBEL_OFFLINE_DAYS=180
+      # 导出主机配置 (可选)
+      # - JREBEL_EXPORT_HOST=your-domain.com
+      # JVM配置
+      - JAVA_OPTS=-Xms512m -Xmx1024m -XX:+UseG1GC
+    volumes:
+      # 可选：挂载日志目录
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:12345/test"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - jrebel-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.jrebel.rule=Host(`jrebel.your-domain.com`)"
+      - "traefik.http.services.jrebel.loadbalancer.server.port=12345"
+
+networks:
+  jrebel-network:
+    driver: bridge 

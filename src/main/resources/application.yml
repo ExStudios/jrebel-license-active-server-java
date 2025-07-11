@@ -1,0 +1,25 @@
+server:
+  port: 12345
+
+spring:
+  application:
+    name: jrebel-license-active-server
+
+# JRebel服务器配置
+jrebel:
+  server:
+    port: 12345
+    offline-days: 30
+    log-level: 2
+    export-schema: http
+    export-host: ""
+    new-index: true
+    jrebel-work-mode: 0
+
+# 日志配置
+logging:
+  level:
+    com.jrebel: INFO
+    org.springframework.web: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n" 

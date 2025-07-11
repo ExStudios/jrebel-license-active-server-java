@@ -1,0 +1,39 @@
+# Git相关
+.git
+.gitignore
+.github
+
+# IDE相关
+.idea
+*.iml
+.vscode
+
+# 构建输出
+target/
+!target/jrebel-license-active-server-1.0.0.jar
+
+# 日志文件
+*.log
+
+# 临时文件
+*.tmp
+*.temp
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 文档
+README.md
+*.md
+LICENSE
+
+# Docker相关
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# 其他
+*.go
+go.mod
+go.sum 
