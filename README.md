@@ -173,9 +173,9 @@ MIT License
 
 欢迎提交Issue和Pull Request！
 
-公众号讨论 ：ExStudios 
+公众号讨论 ：ExStudios  
 ![qrcode_for_gh_66fc8fbb9597_258](https://github.com/user-attachments/assets/60bfc152-6ac4-4448-a94c-e772935ee9dc)
-
+（扫码添加获得更多～）
 
 ##
 特别感谢 @YuXiaoyao 大佬开源的项目，本项目为完全翻译的JAVA版本
